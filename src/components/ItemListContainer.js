@@ -1,29 +1,26 @@
 import './ItemListContainer.css';
 import { Container } from 'react-bootstrap';
-import { useState } from 'react';
 import ItemList from './ItemList';
+import { useEffect, useState } from 'react';
+import { getProducts} from '../utils/products';
 
-const ProductosMostrar = [
-    {id: "1",nombre: "camisa",descripcion: "string",categoria: "overside"}
-    ,{id: "2",nombre: "pantalon",descripcion: "string",categoria: "botaCampana"}
-    ,{id: "3",nombre: "zapatos",descripcion: "string",categoria: "deporte"}
-] 
+
     
 
 const ItemListContainer = ({ greeting }) => {
-    const [name, setName] = useState('Cargando...');
+    const [products, setProducts] = useState([]);
 
-    setTimeout(() =>{
-        setName('Carga completa')
-    }, 4000 )
-
-    //console.log("rederizado");
+    useEffect(() => {
+        getProducts()
+        .then((data) => setProducts(data))
+        .catch((error) => console.warn(error))
+    }, [])
+    
     return (
         <Container>
         <h1>Productos</h1>
         <h3 className="greeting">{greeting}</h3>
-        <p>{name}</p>
-        <ItemList ProductosMostrar = {ProductosMostrar} />
+        <ItemList ProductosMostrar = {products} />
         </Container>
     );
 }
