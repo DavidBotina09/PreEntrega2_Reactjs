@@ -2,19 +2,33 @@ import './ItemListContainer.css';
 import { Container } from 'react-bootstrap';
 import ItemList from './ItemList';
 import { useEffect, useState } from 'react';
-import { getProducts} from '../utils/products';
+import { getProductByCategory, getProducts} from '../utils/products';
+import { useParams } from 'react-router-dom';
 
 
     
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
+    const { categoryId } = useParams();
 
     useEffect(() => {
         getProducts()
         .then((data) => setProducts(data))
         .catch((error) => console.warn(error))
     }, [])
+
+    useEffect(() => {
+        if (categoryId) {
+            getProductByCategory(categoryId)
+            .then((data) => setProducts(data))
+            .catch((error) => console.warn(error))
+        }else{
+            getProducts()
+            .then((data) => setProducts(data))
+            .catch((error) => console.warn(error))
+        }
+    }, [categoryId])
     
     return (
         <Container>
