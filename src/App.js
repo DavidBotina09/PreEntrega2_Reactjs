@@ -7,7 +7,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/PreEntrega2_Reactjs'>
       <NavBar />
       <Routes>
         <Route path='/' element={<ItemListContainer greeting="Bienvenidos a mi Tienda"/>}/>

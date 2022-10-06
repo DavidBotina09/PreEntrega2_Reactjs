@@ -21,6 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://davidbotina09.github.io/PreEntrega2_Reactjs",
   "eslintConfig": {
     "extends": [
       "react-app",
