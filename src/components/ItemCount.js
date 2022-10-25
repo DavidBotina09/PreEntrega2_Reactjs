@@ -1,9 +1,9 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { Container } from "react-bootstrap";
 import "./ItemCount.css"
 
-const ItemCount = () => {
-    const [count, setCount] = useState(0);
+const ItemCount = ({ initial, stock , onAdd }) => {
+    const [count, setCount] = useState(parseInt(initial));
 
     const handliClick = () => {
         setCount(count - 1);
@@ -16,13 +16,19 @@ const ItemCount = () => {
         setCount(count + 1);
     }
 
+    const continuarCarrito = () => onAdd(count);
+
+    useEffect(() => {
+        setCount(parseInt(initial));
+    },[initial])
+
 return (
     <Container>
         <div className="medidor">
-            <button onClick={handliClick}>-</button>
+            <button disabled={count <= 1} onClick={handliClick}>-</button>
             <h4>{count}</h4>
-            <button onClick={handleClick}>+</button>
-            <button>Agregar al Carrito</button>
+            <button disabled={count >= stock} onClick={handleClick}>+</button>
+            <button disabled={stock <= 0} onClick={continuarCarrito}>Agregar al Carrito</button>
         </div>
 
     </Container>

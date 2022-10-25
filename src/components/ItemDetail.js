@@ -1,29 +1,39 @@
+
 import Item from "./Item";
-import React,{useState} from "react";
 import "./ItemCount.css"
+import ItemCount from "./ItemCount";
+import {useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { useCardContext } from "./CartContext";
 
 const ItemDetail = ({ product }) => {
-    const [count, setCount] = useState(0);
+  const {addProduct} = useCardContext();
+    const [, setCount] = useState(0);
+    const [cambiador, setCambiador] = useState(true);
 
-    const handliClick = () => {
-        setCount(count - 1);
-        if(count === 0){
-            setCount(count - 0)
-        }
-    } 
-
-    const handleClick = () => {
-        setCount(count + 1);
-    }
-
+    const handleAdd = (value) => {
+        setCount(value);
+        setCambiador(false);
+        addProduct(product, value);
+      };
+  
     return (
-        <>
+        <div>
         <Item products={product} />
-            <button onClick={handliClick}>-</button>
-            <h4>{count}</h4>
-            <button onClick={handleClick}>+</button>
-            <button>Agregar al Carrito</button>
-        </>
+        {cambiador && (<ItemCount
+          initial={1}
+          stock = {10}
+          onAdd={handleAdd}
+        />)}
+      {!cambiador && (
+          <Link to='/cart'>
+            <Button variant="success">
+                Ir al Carrito
+            </Button>
+          </Link>
+      )}
+        </div>
     );
 }
  
