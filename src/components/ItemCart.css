@@ -1,0 +1,5 @@
+.ItemCart{
+    display: flex;
+    flex-direction: row;
+
+}

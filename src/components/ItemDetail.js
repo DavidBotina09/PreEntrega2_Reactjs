@@ -12,7 +12,7 @@ const ItemDetail = ({ product }) => {
     const [, setCount] = useState(0);
     const [cambiador, setCambiador] = useState(true);
 
-    const handleAdd = (value) => {
+    const onAdd = (value) => {
         setCount(value);
         setCambiador(false);
         addProduct(product, value);
@@ -24,7 +24,7 @@ const ItemDetail = ({ product }) => {
         {cambiador && (<ItemCount
           initial={1}
           stock = {10}
-          onAdd={handleAdd}
+          onAdd={onAdd}
         />)}
       {!cambiador && (
           <Link to='/cart'>
