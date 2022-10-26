@@ -13,12 +13,6 @@ const ItemListContainer = ({ greeting }) => {
     const { categoryId } = useParams();
 
     useEffect(() => {
-        getProducts()
-        .then((data) => setProducts(data))
-        .catch((error) => console.warn(error))
-    }, [])
-
-    useEffect(() => {
         if (categoryId) {
             getProductByCategory(categoryId)
             .then((data) => setProducts(data))
