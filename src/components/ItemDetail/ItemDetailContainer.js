@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { getProduct } from "../utils/products";
+import { getProduct } from "../../utils/products";
 import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {

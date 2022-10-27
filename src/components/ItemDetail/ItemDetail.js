@@ -1,11 +1,10 @@
-
-import Item from "./Item";
-import "./ItemCount.css"
-import ItemCount from "./ItemCount";
+import Item from "../Item/Item";
+import "../ItemCount/ItemCount.css"
+import ItemCount from "../ItemCount/ItemCount";
 import {useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useCardContext } from "./CartContext";
+import { useCardContext } from "../CartContext";
 
 const ItemDetail = ({ product }) => {
   const {addProduct} = useCardContext();

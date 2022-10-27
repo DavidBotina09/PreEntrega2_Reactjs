@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ItemDetailContainer from './components/ItemDetailContainer';
-import Cart from './components/Cart';
+import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
+import Cart from './components/Cart/Cart';
 import CartProvider from './components/CartContext';
 import Checkout from './components/Checkout';
 

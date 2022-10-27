@@ -1,8 +1,8 @@
 import './ItemListContainer.css';
 import { Container } from 'react-bootstrap';
-import ItemList from './ItemList';
+import ItemList from '../ItemList/ItemList';
 import { useEffect, useState } from 'react';
-import { getProductByCategory, getProducts} from '../utils/products';
+import { getProductByCategory, getProducts} from '../../utils/products';
 import { useParams } from 'react-router-dom';
 
 

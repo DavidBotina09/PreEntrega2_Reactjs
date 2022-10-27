@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { useCardContext } from "./CartContext";
-import ItemCart from "./ItemCart";
+import { useCardContext } from "../CartContext";
+import ItemCart from "../ItemCart/ItemCart";
 import "./Cart.css"
 import { Button, Container} from "react-bootstrap";
 import { useState } from "react";
-import { createOrders } from "../utils/oders";
-import OrderModal from "./OrderModal";
+import { createOrders } from "../../utils/oders";
+import OrderModal from "../OrderModal/OrderModal";
 
 const buyermock = {
     name: "David",
@@ -35,6 +35,8 @@ const Cart = () => {
         const newOrderId = await createOrders(newOrder)
         setOrderId(newOrderId)
         //clearCart();
+        console.log(user);
+        console.log(setUser);
     }
 
     if(cart.length === 0){
