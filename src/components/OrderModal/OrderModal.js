@@ -1,9 +1,16 @@
 import { Button, Modal,Form, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useCardContext } from "../CartContext";
 import "./OrderModal.css"
 
 const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
+    const {clearCart} = useCardContext();
+
+    const Limpiar = () =>{
+        clearCart();
+    }
     return ( 
+        <>
         <Modal show={showModal} onHide={onClose}>
         <Modal.Header closeButton>
           <Modal.Title>Terminar Compra</Modal.Title>
@@ -11,15 +18,15 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
         <Modal.Body>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Ingresa tu Email</Form.Label>
-                <Form.Control type="email" placeholder="Ingresa el email" />
+                <Form.Control name="email" type="email" placeholder="Ingresa el email" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Nombre</Form.Label>
-                <Form.Control type="text" placeholder="Ingresa el nombre" />
+                <Form.Control name="nombre" type="text" placeholder="Ingresa el nombre" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Telefono</Form.Label>
-                <Form.Control type="number" placeholder="Ingresa el telefono" />
+                <Form.Control name="telefono" type="number" placeholder="Ingresa el telefono" />
             </Form.Group>
         </Modal.Body>
         <Modal.Footer>
@@ -40,7 +47,7 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
                  {orderId}
                 </Alert>
                 <Link to="/">
-                <Button variant="success">
+                <Button variant="success" onClick={Limpiar}>
                 seguir comprando
                 </Button>
                 </Link>
@@ -51,6 +58,7 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
           
         </Modal.Footer>
       </Modal>
+        </>  
      );
 }
  

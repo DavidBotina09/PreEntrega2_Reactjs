@@ -12,7 +12,6 @@ const buyermock = {
     name: "David",
     email: "davidbotina@gmail.com",
     phone: "3203481591",
-    address: "asdd"
 }
 
 const Cart = () => {
@@ -35,7 +34,6 @@ const Cart = () => {
         }
         const newOrderId = await createOrders(newOrder)
         setOrderId(newOrderId)
-        //clearCart();
         console.log(user);
         console.log(setUser);
     }

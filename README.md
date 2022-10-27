@@ -16,7 +16,6 @@ Este proyecto fue creado con:
 ## Demo
 ![](https://firebasestorage.googleapis.com/v0/b/tienda-de-deportes-a3605.appspot.com/o/Recording%202022-10-27%20at%2013.12.46.gif?alt=media&token=320e3045-2586-4ab8-8c49-026d74676597)
 
-el trabajo al estar en mi local host funciona a la perfeccion solo que al utilizarlo mediante github no me marca el cartwidget y no me hace nada en el cart ni en las compras
 
 ## Estructura de Directorio
  - `/Components`
