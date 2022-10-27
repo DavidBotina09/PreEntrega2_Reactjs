@@ -27,16 +27,17 @@ const Cart = () => {
         setShowModal(false);
     }
     const handleBuy = async () => {
-        const newOrder = {
-            buyer: buyermock,
-            items: cart,
-            total: totalPrice()
-            
-        }
-        const newOrderId = await createOrders(newOrder)
-        setOrderId(newOrderId)
-        console.log(user);
-        console.log(setUser);
+            const newOrder = {
+                buyer: buyermock,
+                items: cart,
+                total: totalPrice()
+                
+            }
+            const newOrderId = await createOrders(newOrder)
+            setOrderId(newOrderId)
+            console.log(user);
+            console.log(setUser);
+        
     }
 
     if(cart.length === 0){
