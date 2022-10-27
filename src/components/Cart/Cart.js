@@ -31,6 +31,7 @@ const Cart = () => {
             buyer: buyermock,
             items: cart,
             total: totalPrice()
+            
         }
         const newOrderId = await createOrders(newOrder)
         setOrderId(newOrderId)

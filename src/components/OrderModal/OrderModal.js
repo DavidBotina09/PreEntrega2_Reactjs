@@ -11,8 +11,13 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
     }
     return ( 
         <>
-        <Modal show={showModal} onHide={onClose}>
-        <Modal.Header closeButton>
+        <Modal
+        show={showModal}
+        onHide={onClose}
+        backdrop="static"
+        keyboard={false}
+        >
+        <Modal.Header >
           <Modal.Title>Terminar Compra</Modal.Title>
         </Modal.Header>
         <Modal.Body>
