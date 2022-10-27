@@ -15,7 +15,7 @@ const buyermock = {
 }
 
 const Cart = () => {
-    const {cart , totalPrice, clearCart} = useCardContext();
+    const {cart , totalPrice} = useCardContext();
     const [user , setUser ] = useState(buyermock);
     const [showModal, setShowModal] = useState(false);
     const [orderId, setOrderId] = useState();
@@ -34,7 +34,7 @@ const Cart = () => {
         }
         const newOrderId = await createOrders(newOrder)
         setOrderId(newOrderId)
-        clearCart();
+        //clearCart();
     }
 
     if(cart.length === 0){
