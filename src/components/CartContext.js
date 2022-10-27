@@ -27,12 +27,14 @@ const totalPrice = () => {
 const totalProducts = () => cart.reduce((acumulador,productoActual) => acumulador + productoActual.quantify, 0);
 
 
-const clearCart = () => setCart([]);
+const clearCart = () => {
+    setCart([]);
+}
 const isInCart = (id) =>  cart.find(product => product.id === parseInt(id)) ? true : false;
 const removeProduct = (id) => setCart(cart.filter(product => product.id !== id));
 
     return (
-        <CartContext.Provider value={{clearCart,isInCart,removeProduct,addProduct,totalPrice,totalProducts,cart}}>
+        <CartContext.Provider value={{cart,isInCart,removeProduct,addProduct,totalPrice,totalProducts,clearCart}}>
             { children }
         </CartContext.Provider>
     );
