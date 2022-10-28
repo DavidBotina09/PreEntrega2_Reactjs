@@ -8,13 +8,10 @@ import { useState } from "react";
 import { createOrders } from "../../utils/oders";
 import OrderModal from "../OrderModal/OrderModal";
 
-export const usuarios = () => {
-    
-}
 const buyermock = {
     name: "David",
-    email: "davidbotina@gmail.com",
-    phone: "3203481591",
+    email:  "davidbotina@gmail.com",
+    phone: "3203481591"
 }
 
 const Cart = () => {
@@ -22,6 +19,8 @@ const Cart = () => {
     const [user , setUser ] = useState(buyermock);
     const [showModal, setShowModal] = useState(false);
     const [orderId, setOrderId] = useState();
+    
+
 
     const handleOpen = () => {
         setShowModal(true);
@@ -31,6 +30,7 @@ const Cart = () => {
     }
     const handleBuy = async () => {
             const newOrder = {
+                fecha: new Date(),
                 buyer: buyermock,
                 items: cart,
                 total: totalPrice()

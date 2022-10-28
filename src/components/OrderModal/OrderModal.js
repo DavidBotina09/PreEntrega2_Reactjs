@@ -5,8 +5,7 @@ import { useCardContext } from "../CartContext";
 import "./OrderModal.css"
 
 
-
-const OrderModal = ({ showModal, onClose, onBuy, orderId, }) => {
+const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
 
     const Limpiar = () =>{
         clearCart();
@@ -142,16 +141,16 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId, }) => {
                 <ul>
                   {cart.map((product) => (
                     <li key={product.id}>
-                        <span>Producto: {product.title}</span>
-                        <span>Cantidad: {product.quantify}</span>
-                        <span>PrecioPrendas: ${product.price}</span>
+                        <div>Producto: {product.title}</div>
+                        <div>Cantidad: {product.quantify}</div>
+                        <div>PrecioPrendas: ${product.price}</div>
                       <h5>Total: $ {product.quantify * product.price}</h5>
                     </li>
                   ))}
                 </ul>
                  <div>
                     <span>
-                        Total Compra: {totalPrice()}
+                        <h3> Total Compra: {totalPrice()} </h3>
                     </span>
                 </div>
                 
