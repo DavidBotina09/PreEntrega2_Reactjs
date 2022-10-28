@@ -2,30 +2,20 @@ import { useState } from "react";
 import { Button, Modal,Form, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useCardContext } from "../CartContext";
-import ItemCart from "../ItemCart/ItemCart";
 import "./OrderModal.css"
 
 
 
 const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
-    const {cart , totalPrice} = useCardContext();
+    const {cart} = useCardContext();
     const [email, setEmail] = useState("")
     const [nombre, setNombre] = useState("")
     const [tel, setTel] = useState("")
     const {clearCart} = useCardContext();
 
-
-
     const Limpiar = () =>{
         clearCart();
     }
-    /*const info = () => {
-        return (
-            email,
-            nombre,
-            tel
-        );
-    }*/
      
     console.log(email);
     console.log(nombre);
@@ -78,12 +68,13 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
                 </Button>
                 </Link>
                 <div>
-                <ul class="">
+                <ul>
                   {cart.map((product) => (
                     <li key={product.id}>
-                      <span>{product.quantity}</span>
-                      <span>$ {product.price}</span>
-                      <span>{product.name}</span>
+                        <span>Producto: {product.title}</span>
+                        <span>Cantidad: {product.quantify}</span>
+                        <span>PrecioPrendas: ${product.price}</span>
+                      <h5>Total: $ {product.quantify * product.price}</h5>
                     </li>
                   ))}
               </ul>
