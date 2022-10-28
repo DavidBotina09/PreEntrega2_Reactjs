@@ -12,7 +12,7 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId, }) => {
         clearCart();
     }
 
-    const {cart} = useCardContext();
+    const {cart, totalPrice} = useCardContext();
     const [gmail, setGmail] = useState("")
     const [VerificadorGmail, setVerificadorGmail] = useState("")
     const [nombre, setNombre] = useState("")
@@ -148,7 +148,12 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId, }) => {
                       <h5>Total: $ {product.quantify * product.price}</h5>
                     </li>
                   ))}
-              </ul>
+                </ul>
+                 <div>
+                    <span>
+                        Total Compra: {totalPrice()}
+                    </span>
+                </div>
                 
                 </div>
             </div>
