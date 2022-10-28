@@ -8,6 +8,9 @@ import { useState } from "react";
 import { createOrders } from "../../utils/oders";
 import OrderModal from "../OrderModal/OrderModal";
 
+export const usuarios = () => {
+    
+}
 const buyermock = {
     name: "David",
     email: "davidbotina@gmail.com",

@@ -6,7 +6,7 @@ import "./OrderModal.css"
 
 
 
-const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
+const OrderModal = ({ showModal, onClose, onBuy, orderId, }) => {
 
     const Limpiar = () =>{
         clearCart();
@@ -18,8 +18,6 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
     const [nombre, setNombre] = useState("")
     const [tel, setTel] = useState("")
     const {clearCart} = useCardContext();
-
-
   
 
     const handleNombre = (e) => {
@@ -103,19 +101,19 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
             {MensajeValidador()}
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Ingresa tu Email</Form.Label>
-                <Form.Control type="email" placeholder="Ingresa el email" value={gmail} onChange={handleGmail}/>
+                <Form.Control name="gmail" type="email" placeholder="Ingresa el email" value={gmail} onChange={handleGmail}/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>verifica tu Email</Form.Label>
-                <Form.Control type="email" placeholder="verifica tu email" value={VerificadorGmail} onChange={handleVerificadorGmail}/>
+                <Form.Control name="VerificadorGmail" type="email" placeholder="verifica tu email" value={VerificadorGmail} onChange={handleVerificadorGmail}/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Nombre</Form.Label>
-                <Form.Control type="text" placeholder="Ingresa el nombre" value={nombre} onChange={handleNombre} />
+                <Form.Control name="nombre" type="text" placeholder="Ingresa el nombre" value={nombre} onChange={handleNombre} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Telefono</Form.Label>
-                <Form.Control type="number" placeholder="Ingresa el telefono" value={tel} onChange={handleTel} />
+                <Form.Control name="tel" type="number" placeholder="Ingresa el telefono" value={tel} onChange={handleTel} />
             </Form.Group>
         </Modal.Body>
         <Modal.Footer>
