@@ -1,9 +1,8 @@
-import Item from "../Item/Item";
 import "../ItemCount/ItemCount.css"
 import ItemCount from "../ItemCount/ItemCount";
 import {useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { useCardContext } from "../CartContext";
 
 const ItemDetail = ({ product }) => {
@@ -19,7 +18,17 @@ const ItemDetail = ({ product }) => {
   
     return (
         <div>
-        <Item products={product} />
+        <div className='cartas'>
+            <Card  style={{ width: '15rem' }}>
+                <Card.Img variant="top" src={product.pictureUrl} />
+                <Card.Body>
+                    <Card.Title>{product.title}</Card.Title>
+                    <Card.Text>{product.categoria}</Card.Text>
+                    <Card.Text>{product.descripcion}</Card.Text>
+                    <Card.Text>{product.price}</Card.Text>
+                </Card.Body>
+            </Card>
+        </div>
         {cambiador && (<ItemCount
           initial={1}
           stock = {10}
