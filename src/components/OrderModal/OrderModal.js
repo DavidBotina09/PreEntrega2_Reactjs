@@ -7,19 +7,86 @@ import "./OrderModal.css"
 
 
 const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
-    const {cart} = useCardContext();
-    const [email, setEmail] = useState("")
-    const [nombre, setNombre] = useState("")
-    const [tel, setTel] = useState("")
-    const {clearCart} = useCardContext();
 
     const Limpiar = () =>{
         clearCart();
     }
-     
-    console.log(email);
-    console.log(nombre);
-    console.log(tel);
+
+    const {cart} = useCardContext();
+    const [gmail, setGmail] = useState("")
+    const [VerificadorGmail, setVerificadorGmail] = useState("")
+    const [nombre, setNombre] = useState("")
+    const [tel, setTel] = useState("")
+    const {clearCart} = useCardContext();
+
+
+  
+
+    const handleNombre = (e) => {
+        setNombre(e.target.value);
+        setSubmitted(false)
+    }
+    const handleGmail = (e) => {
+        setGmail(e.target.value);
+        setSubmitted(false)
+    }
+    const handleVerificadorGmail = (e) => {
+        setVerificadorGmail(e.target.value);
+        setSubmitted(false)
+    }
+    const handleTel = (e) => {
+        setTel(e.target.value);
+        setSubmitted(false)
+    }
+
+    function letrasEspacios(str){
+        return /^[A-Za-z\s]*$/.test(str);
+    }
+    function arrobaContador(str){
+        const tieneArroba = /@/;
+        return tieneArroba.test(str);
+    }
+    function ingresarNumeros(str){
+        return /^[0-9]+$/.test(str);
+    }
+    const [submitted, setSubmitted] = useState(false)
+    const [errorMsg, setErrorMsg] = useState(false)
+    
+ 
+
+    const MensajeValidador = () => {
+        return (
+            <div
+                style={{
+                    display: submitted ? "" : "none",
+                }}>
+                <h4>bien fueron guardados tus datos</h4>
+            </div>
+        )
+    }
+    const MensajeError = () => {
+        return (
+            <div
+                style={{
+                    display: errorMsg ? "" : "none",
+                }}>
+                <h4>ingresaste mal los datos</h4>
+            </div>
+        )
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(!letrasEspacios(nombre) || nombre === "" || !arrobaContador(gmail) || gmail === "" || !ingresarNumeros(tel) || tel === "" || VerificadorGmail !== gmail){
+            setErrorMsg(true);
+        }else{
+            setSubmitted(true);
+            setErrorMsg(false);
+            onBuy();
+        }
+    }
+    
+
     return ( 
         <>
         <Modal
@@ -32,17 +99,23 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
           <Modal.Title>Terminar Compra</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+            {MensajeError()}
+            {MensajeValidador()}
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Ingresa tu Email</Form.Label>
-                <Form.Control name="email" type="email" placeholder="Ingresa el email" value={email} onChange={(e)=> setEmail(e.target.value)} />
+                <Form.Control type="email" placeholder="Ingresa el email" value={gmail} onChange={handleGmail}/>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>verifica tu Email</Form.Label>
+                <Form.Control type="email" placeholder="verifica tu email" value={VerificadorGmail} onChange={handleVerificadorGmail}/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Nombre</Form.Label>
-                <Form.Control name="nombre" type="text" placeholder="Ingresa el nombre" value={nombre} onChange={(e)=> setNombre(e.target.value)} />
+                <Form.Control type="text" placeholder="Ingresa el nombre" value={nombre} onChange={handleNombre} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Telefono</Form.Label>
-                <Form.Control name="telefono" type="number" placeholder="Ingresa el telefono" value={tel} onChange={(e)=> setTel(e.target.value)} />
+                <Form.Control type="number" placeholder="Ingresa el telefono" value={tel} onChange={handleTel} />
             </Form.Group>
         </Modal.Body>
         <Modal.Footer>
@@ -51,7 +124,7 @@ const OrderModal = ({ showModal, onClose, onBuy, orderId }) => {
                 <Button variant="secondary" onClick={onClose}>
                 Cancelar
                 </Button>
-                <Button variant="primary" onClick={onBuy}>
+                <Button variant="primary" onClick={handleSubmit}>
                 Comprar
               </Button>
                 </>
