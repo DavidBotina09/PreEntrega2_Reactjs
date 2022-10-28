@@ -14,7 +14,7 @@ Este proyecto fue creado con:
 [davidbotina09.github.io/Proyecto_Reactjs/](https://davidbotina09.github.io/Proyecto_Reactjs/)
 
 ## Demo
-![](https://firebasestorage.googleapis.com/v0/b/tienda-de-deportes-a3605.appspot.com/o/Recording%202022-10-27%20at%2013.12.46.gif?alt=media&token=320e3045-2586-4ab8-8c49-026d74676597)
+![](https://firebasestorage.googleapis.com/v0/b/tienda-de-deportes-a3605.appspot.com/o/Proyecto_Final.gif?alt=media&token=3439cba4-d9a1-4123-a078-706b79230d36)
 
 
 ## Estructura de Directorio
