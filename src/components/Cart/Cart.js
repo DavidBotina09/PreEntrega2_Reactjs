@@ -38,9 +38,6 @@ const Cart = () => {
             }
             const newOrderId = await createOrders(newOrder)
             setOrderId(newOrderId)
-            console.log(user);
-            console.log(setUser);
-        
     }
 
     if(cart.length === 0){

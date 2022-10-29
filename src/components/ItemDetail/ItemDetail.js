@@ -7,7 +7,7 @@ import { useCardContext } from "../CartContext";
 
 const ItemDetail = ({ product }) => {
   const {addProduct} = useCardContext();
-    const [, setCount] = useState(0);
+    const [count, setCount] = useState(0);
     const [cambiador, setCambiador] = useState(true);
 
     const onAdd = (value) => {
